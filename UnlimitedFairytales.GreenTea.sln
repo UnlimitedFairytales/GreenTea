@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnlimitedFairytales.GreenTea", "UnlimitedFairytales.GreenTea\UnlimitedFairytales.GreenTea.csproj", "{361647F8-B3CF-4EAD-9CAD-4796B3EF9BAD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnlimitedFairytales.GreenTea.Windows", "UnlimitedFairytales.GreenTea.Windows\UnlimitedFairytales.GreenTea.Windows.csproj", "{815F8065-F2E6-4DB1-B324-D6527D0E51D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnlimitedFairytales.GreenTeaTests", "UnlimitedFairytales.GreenTeaTests\UnlimitedFairytales.GreenTeaTests.csproj", "{383303DA-AEE1-4ABB-8D13-E69AE0F919AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnlimitedFairytales.GreenTea.WindowsTests", "UnlimitedFairytales.GreenTea.WindowsTests\UnlimitedFairytales.GreenTea.WindowsTests.csproj", "{2F993430-A87B-4E28-93CB-8DB717369307}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{361647F8-B3CF-4EAD-9CAD-4796B3EF9BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{361647F8-B3CF-4EAD-9CAD-4796B3EF9BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{361647F8-B3CF-4EAD-9CAD-4796B3EF9BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{361647F8-B3CF-4EAD-9CAD-4796B3EF9BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{815F8065-F2E6-4DB1-B324-D6527D0E51D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{815F8065-F2E6-4DB1-B324-D6527D0E51D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{815F8065-F2E6-4DB1-B324-D6527D0E51D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{815F8065-F2E6-4DB1-B324-D6527D0E51D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383303DA-AEE1-4ABB-8D13-E69AE0F919AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383303DA-AEE1-4ABB-8D13-E69AE0F919AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383303DA-AEE1-4ABB-8D13-E69AE0F919AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383303DA-AEE1-4ABB-8D13-E69AE0F919AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F993430-A87B-4E28-93CB-8DB717369307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F993430-A87B-4E28-93CB-8DB717369307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F993430-A87B-4E28-93CB-8DB717369307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F993430-A87B-4E28-93CB-8DB717369307}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CD925B7-8382-4B22-AD7A-FF1AFAF484A7}
+	EndGlobalSection
+EndGlobal
