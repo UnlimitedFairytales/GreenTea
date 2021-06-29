@@ -21,5 +21,27 @@ namespace UnlimitedFairytales.GreenTea.FileSystemExtensions
             }
             return null;
         }
+
+        public static void CreateOrClearDirectory(this string dirPath, bool clears = false)
+        {
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+            if (clears)
+            {
+                var filePaths = Directory.GetFiles(dirPath);
+                foreach (var item in filePaths)
+                {
+                    File.Delete(item);
+                }
+                var dirPaths = Directory.GetDirectories(dirPath);
+                foreach (var item in dirPaths)
+                {
+                    FileSystemExtension.CreateOrClearDirectory(item, clears);
+                    Directory.Delete(item);
+                }
+            }
+        }
     }
 }
