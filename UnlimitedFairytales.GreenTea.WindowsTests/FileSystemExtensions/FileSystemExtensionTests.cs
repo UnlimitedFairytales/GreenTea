@@ -10,7 +10,7 @@ namespace UnlimitedFairytales.GreenTea.Windows.FileSystemExtensions.Tests
         [WindowsFact]
         public void GetOwnerTest()
         {
-            // Assert
+            // Arrange
             var testDirPath = $@".\TEST\{nameof(GetOwnerTest)}";
             var testFilePath = Path.Combine(testDirPath, "text.txt");
             Directory.CreateDirectory(testDirPath);
