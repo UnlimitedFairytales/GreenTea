@@ -3,7 +3,9 @@ using System;
 using System.Data.Common;
 using System.Data.SQLite;
 using System.IO;
+using UnlimitedFairytales.GreenTea.log4net.SQLite;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace UnlimitedFairytales.GreenTea.log4net.Data.Tests
 {
@@ -25,6 +27,13 @@ namespace UnlimitedFairytales.GreenTea.log4net.Data.Tests
             SQLiteConnection.CreateFile(dbFilePath);
         }
 
+        private ITestOutputHelper testOutputHelper;
+
+        public SimpleDbProfilerTests(ITestOutputHelper testOutputHelper)
+        {
+            this.testOutputHelper = testOutputHelper;
+        }
+
         [Fact]
         public void TestSimpleDbProfiler()
         {
@@ -32,7 +41,7 @@ namespace UnlimitedFairytales.GreenTea.log4net.Data.Tests
             DeleteAndCreateDB(DB_FILE_PATH);
             DbConnection conn = new SQLiteConnection();
             conn.ConnectionString = $@"Data Source={DB_FILE_PATH}";
-            var miniProfiler = new SimpleDbProfiler();
+            var miniProfiler = new SimpleDbProfiler(new SQLiteParameterTextGetter());
             conn = new ProfiledDbConnection(conn, miniProfiler);
             conn.Open();
             var cmd = conn.CreateCommand();
@@ -44,16 +53,19 @@ namespace UnlimitedFairytales.GreenTea.log4net.Data.Tests
             cmd.ExecuteNonQuery();
             cmd.CommandText = "insert into accounts VALUES(1, 'Alice')";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "insert into accounts VALUES(2, 'Bob')";
+            cmd.CommandText = "insert into accounts VALUES(2, $name)";
+            cmd.Parameters.Add(new SQLiteParameter("$name", "Bob"));
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "select * from accounts";
+            cmd.Parameters.Clear();
+            cmd.CommandText = "select * from accounts where id=$id";
+            cmd.Parameters.Add(new SQLiteParameter("$id", 2));
             using (var reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
                     var str = "id:" + reader.GetInt32(0).ToString() + Environment.NewLine
                         + "name:" + reader.GetString(1);
-                    Console.WriteLine(str);
+                    testOutputHelper.WriteLine(str);
                 }
             }
 

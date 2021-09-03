@@ -9,20 +9,38 @@ namespace UnlimitedFairytales.GreenTea.log4net.Data
 {
     public class SimpleDbProfiler : IDbProfiler
     {
+        public IParameterTextGetter ParameterTextGetter { get; private set; }
         private const string LOGGER_NAME = "SQL";
+        private const int MAX_MS = 999999;
+        private const int DIGIT = 6;
         private Stopwatch stopwatch;
-        private string commandText;
+        private IDbCommand dbCommand;
 
         public bool IsActive => true;
 
+        public SimpleDbProfiler(IParameterTextGetter parameterTextGetter)
+        {
+            this.ParameterTextGetter = parameterTextGetter;
+        }
+
         public void ExecuteFinish(IDbCommand profiledDbCommand, SqlExecuteType executeType, DbDataReader reader)
         {
-            commandText = profiledDbCommand.CommandText;
+            dbCommand = profiledDbCommand;
             if (executeType != SqlExecuteType.Reader)
             {
                 stopwatch.Stop();
-                long millisec = 9999 < stopwatch.ElapsedMilliseconds ? 9999 : stopwatch.ElapsedMilliseconds;
-                this.GetLogger(LOGGER_NAME).Debug($"[{millisec,4}ms] " + commandText);
+                long millisec = MAX_MS < stopwatch.ElapsedMilliseconds ? MAX_MS : stopwatch.ElapsedMilliseconds;
+                if (0 < dbCommand.Parameters.Count && this.ParameterTextGetter != null)
+                {
+                    var parametersText = "";
+                    foreach (var item in dbCommand.Parameters)
+                    {
+                        parametersText = this.ParameterTextGetter.GetParameterText(item) + ", ";
+                    }
+                    parametersText = parametersText.Substring(0, parametersText.Length - 2);
+                    this.GetLogger(LOGGER_NAME).Debug($"Parameters : {parametersText}");
+                }
+                this.GetLogger(LOGGER_NAME).Debug($"[{millisec,DIGIT}ms] " + dbCommand.CommandText);
             }
         }
 
@@ -40,8 +58,18 @@ namespace UnlimitedFairytales.GreenTea.log4net.Data
         public void ReaderFinish(IDataReader reader)
         {
             stopwatch.Stop();
-            long millisec = 9999 < stopwatch.ElapsedMilliseconds ? 9999 : stopwatch.ElapsedMilliseconds;
-            this.GetLogger(LOGGER_NAME).Debug($"[{millisec,4}ms] " + commandText);
+            long millisec = MAX_MS < stopwatch.ElapsedMilliseconds ? MAX_MS : stopwatch.ElapsedMilliseconds;
+            if (0 < dbCommand.Parameters.Count && this.ParameterTextGetter != null)
+            {
+                var parametersText = "";
+                foreach (var item in dbCommand.Parameters)
+                {
+                    parametersText = this.ParameterTextGetter.GetParameterText(item) + ", ";
+                }
+                parametersText = parametersText.Substring(0, parametersText.Length - 2);
+                this.GetLogger(LOGGER_NAME).Debug($"Parameters : {parametersText}");
+            }
+            this.GetLogger(LOGGER_NAME).Debug($" [{millisec,DIGIT}ms] " + dbCommand.CommandText);
         }
     }
 }
