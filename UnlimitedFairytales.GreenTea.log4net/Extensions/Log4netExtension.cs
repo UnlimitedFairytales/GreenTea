@@ -22,11 +22,23 @@ namespace UnlimitedFairytales.GreenTea.log4net.Extensions
 
         private static Assembly entryPointAssembly;
 
+        /// <summary>
+        /// 設定ファイルは、実行を開始したexeと同じ場所にあるlog4net.config.xmlを読み取ります。
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="loggerName"></param>
+        /// <returns></returns>
         public static ILog GetLogger(this object obj, string loggerName)
         {
             return LogManager.GetLogger(entryPointAssembly, loggerName);
         }
 
+        /// <summary>
+        /// 設定ファイルは、実行を開始したexeと同じ場所にあるlog4net.config.xmlを読み取ります。
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static ILog GetLogger(this object obj, Type type = null)
         {
             if (type == null)
