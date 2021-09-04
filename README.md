@@ -70,10 +70,26 @@ Windowsシステム専用です。ファイルオーナーを取得する拡張�
 ________________________________________
 ## その他
 ________________________________________
-### 昔はなんかもうちょっと違ったような？
+### 昔はもうちょっと違ったような？
 
 ```text
-はい、昔プロジェクトテンプレート目的として作り、Nugetにそのバージョンを公開していました。
-冷静に考えたら単なるライブラリとして追加されるNugetでうまく使える訳もないのでそちらは一旦放棄して、ライブラリ部分を取り出して再編成しました。
-テンプレートは気が向いたら再度公開するかもしれません。
+はい、かつてプロジェクトテンプレート目的として作りました。
+ただし単なるライブラリとして考えるとまともに使えないことに気づきました。
+そのため、そちらは一旦放棄してライブラリ部分を取り出して再編成しました。
+テンプレートは気が向いたら調整してslnテンプレートとして公開するかもしれません。
+
+旧GreenTeaとの比較
+
+廃止					UnlimitedFairytales.GreenTea.Data.DbConfig
+廃止					UnlimitedFairytales.GreenTea.Data.DbConnectionHelper
+log4net拡張に再編成済	UnlimitedFairytales.GreenTea.Data.SimpleDbProfiler
+廃止					UnlimitedFairytales.GreenTea.Exceptions.CanceledException
+廃止					UnlimitedFairytales.GreenTea.Exceptions.NegativeResponseException
+廃止					UnlimitedFairytales.GreenTea.Exceptions.NoDataFoundException
+何らかの形で再編成済	UnlimitedFairytales.GreenTea.Extensions.*
+廃止					UnlimitedFairytales.GreenTea.Resources.StringResource
+CsvHelper拡張に再編成済	UnlimitedFairytales.GreenTea.Utilities.CodePage
+CsvHelper拡張に再編成済	UnlimitedFairytales.GreenTea.Utilities.Csv
+廃止					UnlimitedFairytales.GreenTea.Utilities.Http
+廃止					UnlimitedFairytales.GreenTea.Utilities.Mail
 ```
