@@ -54,7 +54,7 @@ https://miniprofiler.com/
 ________________________________________
 ### UnlimitedFairytales.GreenTea.log4net.SQLite
 ________________________________________
-OSSのSystem.Data.SQLite1.0.115に対して、SimpleDbProfilerでログ出力時にParametersをダウンキャストして出力しできるようにします。
+SimpleDbProfilerをOSSのSystem.Data.SQLiteに対して使用する時、Parametersをダウンキャストしてログ出力できるようにします。
 
 SQLiteの本家は、こちらを参照してください。
 
