@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnlimitedFairytales.GreenTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnlimitedFairytales.GreenTea.CsvHelperTests", "UnlimitedFairytales.GreenTea.CsvHelperTests\UnlimitedFairytales.GreenTea.CsvHelperTests.csproj", "{8C298CE9-ABEA-497B-A459-4F6084415C12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnlimitedFairytales.GreenTea.log4net.SQLite", "UnlimitedFairytales.GreenTea.log4net.SQLite\UnlimitedFairytales.GreenTea.log4net.SQLite.csproj", "{6A8594EB-227D-489B-92BF-3C53E9D0E114}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnlimitedFairytales.GreenTea.log4net.SQLite", "UnlimitedFairytales.GreenTea.log4net.SQLite\UnlimitedFairytales.GreenTea.log4net.SQLite.csproj", "{6A8594EB-227D-489B-92BF-3C53E9D0E114}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
