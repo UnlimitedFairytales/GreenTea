@@ -1,10 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <TargetFramework>net5.0</TargetFramework>
+    <Version>2.0.0</Version>
+    <Authors>UnlimitedFairytales</Authors>
+    <Description>Simple extension methods.</Description>
+    <Copyright>Copyright © 2018-2021 UnlimitedFairytales All Rights Reserved.</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/UnlimitedFairytales/GreenTea</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/UnlimitedFairytales/GreenTea</RepositoryUrl>
+    <PackageReleaseNotes>2.0 2021/09/05</PackageReleaseNotes>
+    <PackageTags>Log4net,MiniProfiler,SQLite</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <PackageReference Include="System.Data.SQLite" Version="1.0.115" />
   </ItemGroup>
 
