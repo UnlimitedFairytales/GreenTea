@@ -30,7 +30,7 @@ Clone拡張メソッドを追加します。
 ________________________________________
 ## UnlimitedFairytales.GreenTea.CsvHelper
 ________________________________________
-OSSのCsvHelper27.1.1に対して、よく使用する構成を前提にした拡張メソッドを追加します。
+OSSのCsvHelper27.1.1を利用した、よく使用する構成を前提にした拡張メソッドを追加します。
 
 CsvHelperの本家は、こちらを参照してください。
 
@@ -39,11 +39,13 @@ https://joshclose.github.io/CsvHelper/
 ________________________________________
 ## UnlimitedFairytales.GreenTea.log4net
 ________________________________________
-OSSのlog4net2.0.12に対して、よく使用する構成を前提にした拡張メソッドを追加します。
+OSSのlog4net2.0.12を利用した、よく使用する構成を前提にした拡張メソッドを追加します。
 
 log4netの本家は、こちらを参照してください。
 
 https://logging.apache.org/log4net/
+
+OSSのMiniProfiler.Shared4.2.22を利用したDbConnectionのロギングを実現するためのIDbProfilerのシンプルな実装クラスも提供します。
 
 MiniProfilerの本家は、こちらを参照してください。
 
