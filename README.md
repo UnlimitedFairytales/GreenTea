@@ -52,7 +52,7 @@ MiniProfilerの本家は、こちらを参照してください。
 https://miniprofiler.com/
 
 ________________________________________
-### UnlimitedFairytales.GreenTea.log4net.SQLite
+## UnlimitedFairytales.GreenTea.log4net.SQLite
 ________________________________________
 SimpleDbProfilerをOSSのSystem.Data.SQLiteに対して使用する時、Parametersをダウンキャストしてログ出力できるようにします。
 
@@ -61,9 +61,9 @@ SQLiteの本家は、こちらを参照してください。
 https://www.sqlite.org/index.html
 
 ________________________________________
-### UnlimitedFairytales.GreenTea.Windows
+## UnlimitedFairytales.GreenTea.Windows
 ________________________________________
-FileSystemExtensions
+### FileSystemExtensions
 
 Windowsシステム専用です。ファイルオーナーを取得する拡張メソッドを追加します。
 
