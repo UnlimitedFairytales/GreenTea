@@ -37,15 +37,72 @@ namespace UnlimitedFairytales.GreenTea.CsvHelper.Extensions.Tests
                 // Arrange
                 var path = "./sjis-csv-sample.csv";
                 // Act
-                var accounts = path.ReadCsv<AccountCsvDto>(CsvHelperExtension.SJIS_WIN).ToList();
+                var accounts = path.ReadCsv<AccountCsvDto>(CsvHelperExtension.SJIS_WIN);
                 // Assert
                 Assert.Equal(4, accounts.Count);
-                Assert.Equal("Alice", accounts[0].Name);
-                Assert.Equal("alice@foo.com", accounts[0].EMail);
-                Assert.Equal(18, accounts[0].Age);
-                Assert.Equal("note", accounts[0].Note);
-                Assert.Equal("note2", accounts[0].Note2);
-                Assert.Equal("note3", accounts[0].Note3);
+
+                int i = 0;
+                Assert.Equal(1, accounts[i].Id);
+                Assert.Equal("Alice", accounts[i].Name);
+                Assert.Equal("alice@foo.com", accounts[i].EMail);
+                Assert.Equal(18, accounts[i].Age);
+                Assert.Equal("note", accounts[i].Note);
+                Assert.Equal("note2", accounts[i].Note2);
+                Assert.Equal("note3", accounts[i].Note3);
+
+                i = 1;
+                Assert.Equal(2, accounts[i].Id);
+                Assert.Equal("Bob", accounts[i].Name);
+                Assert.Equal("bob@bar.com", accounts[i].EMail);
+                Assert.Equal(21, accounts[i].Age);
+                Assert.Equal("note", accounts[i].Note);
+                Assert.Equal("note2", accounts[i].Note2);
+                Assert.Equal("note3", accounts[i].Note3);
+
+                i = 2;
+                Assert.Equal(3, accounts[i].Id);
+                Assert.Equal("Carol", accounts[i].Name);
+                Assert.Equal("carol@baz.com", accounts[i].EMail);
+                Assert.Equal(19, accounts[i].Age);
+                Assert.Equal("note", accounts[i].Note);
+                Assert.Equal("note2\r\nnote2-2", accounts[i].Note2);
+                Assert.Equal("note3", accounts[i].Note3);
+
+                i = 3;
+                Assert.Equal(4, accounts[i].Id);
+                Assert.Equal("Dave", accounts[i].Name);
+                Assert.Equal("dave@qux.com", accounts[i].EMail);
+                Assert.Equal(20, accounts[i].Age);
+                Assert.Equal("note", accounts[i].Note);
+                Assert.Equal("note2", accounts[i].Note2);
+                Assert.Equal("note3", accounts[i].Note3);
+            }
+            {
+                // Arrange
+                var path = "./sjis-csv-sample.csv"; // 同一名の列があると、dynamicは失敗する
+                // Act
+                // Assert
+                Assert.Throws<ReaderException>(() =>
+                {
+                    var accounts = path.ReadCsv<dynamic>(CsvHelperExtension.SJIS_WIN);
+                });
+            }
+            {
+                // Arrange
+                var path = "./sjis-csv-sample2.csv";
+                // Act
+                var accounts = path.ReadCsv<dynamic>(CsvHelperExtension.SJIS_WIN);
+                // Assert
+                Assert.Equal(4, accounts.Count);
+
+                int i = 0;
+                Assert.Equal("1", accounts[i].ID);
+                Assert.Equal("Alice", accounts[i].名前);
+                // Assert.Equal("alice@foo.com", accounts[i].E-Mail);
+                Assert.Equal("18", accounts[i].年齢);
+                // Assert.Equal("note", accounts[i].1 備考);
+                // Assert.Equal("note2", accounts[i].2 備考);
+                // Assert.Equal("note3", accounts[i].3 備考);
             }
             {
                 // Arrange
