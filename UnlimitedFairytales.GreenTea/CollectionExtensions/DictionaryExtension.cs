@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace UnlimitedFairytales.GreenTea.CollectionExtensions
+﻿namespace UnlimitedFairytales.GreenTea.CollectionExtensions
 {
     public static class DictionaryExtension
     {

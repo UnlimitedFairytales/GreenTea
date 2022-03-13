@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace UnlimitedFairytales.GreenTea.Windows.FileSystemExtensions
+﻿namespace UnlimitedFairytales.GreenTea.Windows.FileSystemExtensions
 {
     public static class FileSystemExtension
     {

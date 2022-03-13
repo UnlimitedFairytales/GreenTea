@@ -1,7 +1,5 @@
 ﻿using log4net;
 using log4net.Config;
-using System;
-using System.IO;
 using System.Reflection;
 
 namespace UnlimitedFairytales.GreenTea.log4net.Extensions

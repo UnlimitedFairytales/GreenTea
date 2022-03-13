@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using UnlimitedFairytales.GreenTea.WindowsTests;
+﻿using UnlimitedFairytales.GreenTea.WindowsTests;
 using Xunit;
 
 namespace UnlimitedFairytales.GreenTea.Windows.FileSystemExtensions.Tests

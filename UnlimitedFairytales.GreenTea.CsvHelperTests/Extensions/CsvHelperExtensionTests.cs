@@ -1,12 +1,6 @@
-﻿using Xunit;
-using UnlimitedFairytales.GreenTea.CsvHelper.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CsvHelper;
 using CsvHelper.Configuration.Attributes;
-using CsvHelper;
+using Xunit;
 
 namespace UnlimitedFairytales.GreenTea.CsvHelper.Extensions.Tests
 {

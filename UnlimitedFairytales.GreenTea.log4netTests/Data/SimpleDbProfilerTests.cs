@@ -1,8 +1,6 @@
 ﻿using StackExchange.Profiling.Data;
-using System;
 using System.Data.Common;
 using System.Data.SQLite;
-using System.IO;
 using UnlimitedFairytales.GreenTea.log4net.SQLite;
 using Xunit;
 using Xunit.Abstractions;

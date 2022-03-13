@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UnlimitedFairytales.GreenTea.TestExtensions
+﻿namespace UnlimitedFairytales.GreenTea.TestExtensions
 {
     public static class ReflectionExtension
     {
