@@ -112,6 +112,37 @@ namespace UnlimitedFairytales.GreenTea.CsvHelper.Extensions.Tests
                     Assert.Contains(@"4,Dave,""dave@qu""x.com"",20,""no,""te"",""note2"",""note3""", ex.Message);
                 }
             }
+            {
+                // Arrange
+                var path = "./sjis-tsv-sample.tsv";
+                // Act
+                try
+                {
+                    path.ReadCsv<AccountCsvDto>(CsvHelperExtension.SJIS_WIN).ToList();
+                }
+                catch (BadDataException ex)
+                {
+                    // Assert
+                    Assert.Contains(@"ID	名前	E-Mail	年齢	""1 備考""	""2 備考""	""3 備考""", ex.Message);
+                }
+            }
+            {
+                // Arrange
+                var path = "./sjis-tsv-sample.tsv";
+                // Act
+                var accounts = path.ReadCsv<dynamic>(CsvHelperExtension.SJIS_WIN, "\t");
+                // Assert
+                Assert.Equal(4, accounts.Count);
+
+                int i = 0;
+                Assert.Equal("1", accounts[i].ID);
+                Assert.Equal("Alice", accounts[i].名前);
+                // Assert.Equal("alice@foo.com", accounts[i].E-Mail);
+                Assert.Equal("18", accounts[i].年齢);
+                // Assert.Equal("note", accounts[i].1 備考);
+                // Assert.Equal("note2", accounts[i].2 備考);
+                // Assert.Equal("note3", accounts[i].3 備考);
+            }
         }
     }
 }

@@ -8,21 +8,20 @@ namespace UnlimitedFairytales.GreenTea.CsvHelper.Extensions
     public static class CsvHelperExtension
     {
         public static readonly Encoding SJIS_WIN;
-        public static readonly Encoding EUC_JP;
-        public static readonly Encoding ISO_2022_JP;
+        public static readonly Encoding EUC_JP_WIN;
+        public static readonly Encoding ISO_2022_JP_WIN;
         public static readonly Encoding UTF8;
 
         static CsvHelperExtension()
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             SJIS_WIN = Encoding.GetEncoding(932);
-            EUC_JP = Encoding.GetEncoding(51932);
-            ISO_2022_JP = Encoding.GetEncoding(50220);
+            EUC_JP_WIN = Encoding.GetEncoding(51932);
+            ISO_2022_JP_WIN = Encoding.GetEncoding(50220);
             UTF8 = Encoding.GetEncoding(65001);
         }
 
-        public static CsvConfiguration GetCsvConfiguration(Encoding enc, BadDataFound badDataFound = null)
+        public static CsvConfiguration GetCsvConfiguration(Encoding enc, string delimiter = null, BadDataFound badDataFound = null)
         {
             // https://github.com/JoshClose/CsvHelper/blob/27.1.1/src/CsvHelper/Configuration/CsvConfiguration.cs
             var cultureInfo = CultureInfo.InvariantCulture;
@@ -75,6 +74,10 @@ namespace UnlimitedFairytales.GreenTea.CsvHelper.Extensions
                 //UseNewObjectForNullReferenceMembers = true,
                 //WhiteSpaceChars = new char[] { ' ' },
             };
+            if (delimiter != null)
+            {
+                config.Delimiter = delimiter;
+            }
             if (badDataFound != null)
             {
                 config.BadDataFound = badDataFound;
@@ -82,12 +85,14 @@ namespace UnlimitedFairytales.GreenTea.CsvHelper.Extensions
             return config;
         }
 
-        public static List<T> ReadCsv<T>(this string filePath, Encoding enc, CsvConfiguration config = null)
+        public static List<T> ReadCsv<T>(this string filePath, Encoding enc, string delimiter = null)
         {
-            if (config == null)
-            {
-                config = CsvHelperExtension.GetCsvConfiguration(enc);
-            }
+            var config = CsvHelperExtension.GetCsvConfiguration(enc, delimiter);
+            return CsvHelperExtension.ReadCsv<T>(filePath, config);
+        }
+        
+        public static List<T> ReadCsv<T>(this string filePath, CsvConfiguration config)
+        {
             using (var sr = new StreamReader(filePath, config.Encoding))
             using (var reader = new CsvReader(sr, config))
             {
