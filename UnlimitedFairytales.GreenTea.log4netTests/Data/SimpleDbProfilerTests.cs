@@ -43,7 +43,7 @@ namespace UnlimitedFairytales.GreenTea.log4net.Data.Tests
             conn = new ProfiledDbConnection(conn, miniProfiler);
             conn.Open();
             var cmd = conn.CreateCommand();
-            if (Directory.Exists(".logs")) Directory.Delete(".logs", true);
+            if (Directory.Exists("../logs")) Directory.Delete("../logs", true);
 
             // Act
             var dateTime = DateTime.Now;
@@ -68,7 +68,7 @@ namespace UnlimitedFairytales.GreenTea.log4net.Data.Tests
             }
 
             // Assert
-            var logFilePath = $"./logs/{dateTime.ToString("yyyyMMdd")}.log";
+            var logFilePath = $"../logs/{dateTime.ToString("yyyyMMdd")}.log";
             Assert.True(File.Exists(logFilePath));
         }
     }
