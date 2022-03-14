@@ -3,14 +3,15 @@
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>3.0.0</Version>
+    <Version>3.1.0</Version>
     <Authors>UnlimitedFairytales</Authors>
     <Description>Simple extension methods.</Description>
     <Copyright>Copyright © 2018-2022 UnlimitedFairytales All Rights Reserved.</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/UnlimitedFairytales/GreenTea</PackageProjectUrl>
     <RepositoryUrl>https://github.com/UnlimitedFairytales/GreenTea</RepositoryUrl>
-    <PackageReleaseNotes>3.0 2022/03/14 retarget to .net6
+    <PackageReleaseNotes>3.1 2022/03/15
+3.0 2022/03/14 retarget to .net6
 2.0 2021/09/05
 1.2 2019/03/15
 1.1 2018/11/15
