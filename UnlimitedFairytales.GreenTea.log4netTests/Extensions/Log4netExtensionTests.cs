@@ -60,6 +60,7 @@ namespace UnlimitedFairytales.GreenTea.log4net.Extensions.Tests
             // Assert
             logger.Debug("デバッグ");
             logger.Info("インフォ");
+            logger.Error("メッセージ");
             try
             {
                 throw new Exception("任意のエラー");
@@ -67,7 +68,7 @@ namespace UnlimitedFairytales.GreenTea.log4net.Extensions.Tests
             catch (Exception ex)
             {
                 GlobalContext.Properties["UserId"] = "12345";
-                logger.Error("メッセージ", ex);
+                logger.Error("メッセージ。catch内でロギングした場合、line numberは例外をthrowした行になる。", ex);
             }
         }
     }
